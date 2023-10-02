@@ -28,7 +28,7 @@ const Formulario = () => {
       setLogado(false);
     }
     if(user === '' || password === '') {
-      window.alert('Este é um programa teste, se fez um cadastro e não consegue se logar, por favor, faça movamente')
+      window.alert('Este é um programa teste, se fez um cadastro e não consegue se logar, por favor, faça novamente')
       setLogado(false)
     }
   }
