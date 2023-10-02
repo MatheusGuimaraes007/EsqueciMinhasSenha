@@ -151,9 +151,10 @@ const FormularioRegistrar = () => {
 
   return (
     <div>
-       <section className='w-full flex flex-col justify-center items-center mt-10 mb-10'>
+       <section className='w-full flex flex-col justify-center 
+       items-center mt-10 mb-10 mx-auto'>
         <h1 className='text-center text-4xl text-sky-500 font-semibold mb-5'>Cadastro de usuário</h1>
-          {!createLogin ? <form action="" className='bg-sky-600 flex flex-col p-3 w-[80vw] rounded-xl'>
+          {!createLogin ? <form action="" className='bg-sky-600 flex flex-col p-3 w-[80vw] rounded-xl md:w-[30vw]'>
             <label htmlFor="nome" className='text-white mt-3 text-sm'>Nome</label>
             <input type="text" id='nome' value={dataCtx?.user} onChange={({target}) => dataCtx?.setUser(target.value)}
             className='bg-red-300 border border-sky-200 

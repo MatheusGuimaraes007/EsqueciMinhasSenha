@@ -39,7 +39,7 @@ const Formulario = () => {
   }
 
   return (
-    <section className='w-full flex flex-col justify-center items-center mt-10'>
+    <section className='w-full flex flex-col justify-center items-center mt-10 md:w-[50%] mx-auto'>
       {!logado  ? <form action="" className='w-[80%] bg-sky-800 flex flex-col p-3 rounded-xl'>
         <label htmlFor="name" className='text-white'>Email:</label>
         <input type="text" id='name' className='bg-transparent border-sky-500 text-white py-1 outline-none focus:border-sky-600 px-2 border rounded-md' value={user} onChange={({target}) => setUser(target.value)} />
