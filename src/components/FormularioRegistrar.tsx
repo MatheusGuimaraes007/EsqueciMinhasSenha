@@ -49,9 +49,9 @@ const FormularioRegistrar = () => {
     e.preventDefault();
     if(dataCtx?.user && dataCtx?.password && dataCtx.email && cep && logradouro && bairro && cidade && estado && numero) {
       setMyLocalStorage({
-        user: dataCtx?.user || '',
-        password: dataCtx?.password || '',
-        email: dataCtx?.email || '',
+        user: dataCtx?.user,
+        password: dataCtx?.password,
+        email: dataCtx?.email,
         cep: cep,
         logradouro: logradouro,
         bairro: bairro,
@@ -59,15 +59,35 @@ const FormularioRegistrar = () => {
         estado: estado,
         numero: numero,
       });
-  
-      // Save to localStorage
       saveToLocalStorage();
       limparCampo();
       setCreateLogin(!createLogin);
     } else {
       window.alert('Preencha todos os campos para criar uma conta')
     }
+    
   };
+  saveToLocalStorage();
+  
+  const criarNovoUsuario = () => {
+    const apply = confirm('Se criar um novo cadastro, o antigo será excluido')
+    if(apply) {
+      setCreateLogin(!createLogin)
+    if(myLocalStorage) {
+      setMyLocalStorage({
+        user: '',
+        password: '',
+        email: '',
+        cep: '',
+        logradouro: '',
+        bairro: '',
+        cidade: '',
+        estado: '',
+        numero: '',
+      });
+    }
+    }
+  }
 
 
   const estadosBrasil: Estado[] = [
@@ -209,7 +229,7 @@ const FormularioRegistrar = () => {
             <button className='text-sm mt-5 py-2 w-[50%] self-center rounded-md text-white bg-sky-700' onClick={cadastrarUsuario}>CADASTRAR-SE</button>
         </form> : <div className='flex flex-col w-full justify-center items-center gap-3'>
               <span>Cadastro Criado</span>
-              <button onClick={() => setCreateLogin(!createLogin)} className='border py-2 px-4 rounded-md bg-sky-600 text-white opacity-80 hover:opacity-100'>Criar novo Usuário</button>
+              <button onClick={criarNovoUsuario} className='border py-2 px-4 rounded-md bg-sky-600 text-white opacity-80 hover:opacity-100'>Criar novo Usuário</button>
           </div>}
     </section>
     </div>

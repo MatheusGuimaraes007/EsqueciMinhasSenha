@@ -21,10 +21,15 @@ const Formulario = () => {
     e.preventDefault();
     setUser('');
     setPassword('');
-    if(user === getLocalStorage().user && password === getLocalStorage().password) {
+    if(user === getLocalStorage().email && password === getLocalStorage().password) {
       setLogado(true);
     } else {
+      window.alert('Login ou Senha inválidos, crie uma nova conta!')
       setLogado(false);
+    }
+    if(user === '' || password === '') {
+      window.alert('Este é um programa teste, se fez um cadastro e não consegue se logar, por favor, faça movamente')
+      setLogado(false)
     }
   }
 
